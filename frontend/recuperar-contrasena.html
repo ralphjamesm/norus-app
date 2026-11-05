@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#091522">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<link rel="manifest" href="manifest.webmanifest">
+	<title>Grupo Norus | Recuperar contraseña</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="assets/css/styles.css">
+	<link rel="stylesheet" href="assets/css/luxury.css">
+</head>
+<body>
+	<main class="page-shell auth-shell">
+		<header class="site-header">
+			<a class="brand brand-link" href="index.html" aria-label="Grupo Norus, inicio"><span class="brand-mark" aria-hidden="true">N</span><span class="brand-copy"><strong>GRUPO NORUS</strong><small>Apartments &amp; Hospitality</small></span></a>
+			<nav class="site-nav" aria-label="Navegación principal"><a href="index.html">Inicio</a></nav>
+			<nav class="language-switch" aria-label="Seleccionar idioma"><button class="language-button is-active" type="button" data-language="es" aria-pressed="true">ES</button><span aria-hidden="true">/</span><button class="language-button" type="button" data-language="en" aria-pressed="false">EN</button><span aria-hidden="true">/</span><button class="language-button" type="button" data-language="pt" aria-pressed="false">PT</button></nav>
+		</header>
+		<section class="auth-layout recovery-layout" aria-labelledby="recovery-title">
+			<div class="auth-story"><p class="eyebrow">ESTAMOS PARA AYUDARTE</p><h1>Recupera el acceso<br>a tu cuenta.</h1><p>Te guiaremos para que vuelvas a disfrutar de una experiencia sin complicaciones.</p></div>
+			<div class="auth-card">
+				<a class="back-link" href="login.html"><span aria-hidden="true">←</span> Volver al inicio de sesión</a>
+				<div class="recovery-icon" aria-hidden="true">✳</div>
+				<p class="eyebrow">RECUPERACIÓN DE CUENTA</p>
+				<h2 id="recovery-title">¿Olvidaste tu contraseña?</h2>
+				<p class="auth-description">Ingresa el correo asociado a tu cuenta. Te enviaremos instrucciones para restablecerla.</p>
+				<form class="auth-form" data-auth-form="recovery" method="post" action="/api/auth/password-reset">
+					<noscript><p class="form-status">Activa JavaScript para usar esta demostración; no se enviará ningún correo.</p></noscript>
+					<label for="recovery-email">Correo electrónico</label>
+					<input id="recovery-email" name="email" type="email" placeholder="nombre@correo.com" autocomplete="email" required>
+					<button class="primary-button" type="submit" disabled>Enviar instrucciones <span aria-hidden="true">→</span></button>
+					<p class="form-status" role="status" aria-live="polite"></p>
+				</form>
+				<p class="auth-footnote">Para asistencia durante una estadía, ingresa a tu dashboard de huésped.</p>
+			</div>
+		</section>
+		<footer class="site-footer auth-footer"><span>© Grupo Norus</span><span>Atención y soporte 24/7</span></footer>
+	</main>
+	<script src="assets/js/app.js" defer></script>
+	<script src="assets/js/backend.js" defer></script>
+</body>
+</html>

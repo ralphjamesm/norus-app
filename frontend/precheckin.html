@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#091522">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="description" content="Completa tu pre check-in digital de Grupo Norus.">
+	<title>Grupo Norus | Pre Check-in Digital</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="assets/css/styles.css">
+	<link rel="stylesheet" href="assets/css/luxury.css">
+	<link rel="manifest" href="manifest.webmanifest">
+</head>
+<body>
+	<main class="page-shell precheckin-shell">
+		<div class="dashed-frame" aria-hidden="true"></div>
+		<header class="topbar">
+			<a class="brand brand-link" href="index.html" aria-label="Grupo Norus, inicio"><span class="brand-mark" aria-hidden="true">N</span><span class="brand-copy"><strong>GRUPO NORUS</strong><small>Apartments &amp; Hospitality</small></span></a>
+			<nav class="site-nav" aria-label="Navegación principal"><a class="nav-login" href="login.html">Iniciar sesión</a></nav>
+			<nav class="language-switch" aria-label="Seleccionar idioma">
+				<button class="language-button is-active" type="button" lang="es" data-language="es" aria-pressed="true">ES</button>
+				<span aria-hidden="true">|</span>
+				<button class="language-button" type="button" lang="en" data-language="en" aria-pressed="false">EN</button>
+				<span aria-hidden="true">|</span>
+				<button class="language-button" type="button" lang="pt" data-language="pt" aria-pressed="false">PT</button>
+			</nav>
+			<span class="globe-icon" aria-hidden="true">
+				<svg viewBox="0 0 32 32" focusable="false">
+					<circle cx="16" cy="16" r="12.5"></circle>
+					<path d="M3.8 16h24.4M16 3.5c3.4 3.4 5.1 7.6 5.1 12.5s-1.7 9.1-5.1 12.5C12.6 25.1 10.9 20.9 10.9 16S12.6 6.9 16 3.5zM6.5 8.5h19M6.5 23.5h19"></path>
+				</svg>
+			</span>
+		</header>
+
+		<section class="precheckin-panel" aria-labelledby="precheckin-title">
+			<header class="precheckin-heading">
+				<a class="back-button" href="index.html" aria-label="Volver" data-i18n-aria="backLabel" title="Volver">
+					<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m7 7-7-7 7-7"></path></svg>
+				</a>
+				<h2 id="precheckin-title" data-i18n="precheckinTitle">Pre Check-in Digital</h2>
+			</header>
+
+			<form class="precheckin-form" novalidate data-precheckin-form>
+				<p class="form-intro">Completa tus datos para preparar tu llegada.</p>
+				<label class="visually-hidden" for="guest-name" data-i18n="guestName">Nombre completo del huésped</label>
+				<input class="guest-input" id="guest-name" name="guestName" type="text" placeholder="Nombre completo&#10;del huésped" autocomplete="name" required data-i18n-placeholder="guestPlaceholder">
+				<div class="contact-fields">
+					<label for="guest-email">Correo electrónico</label><input class="guest-input" id="guest-email" name="email" type="email" placeholder="nombre@correo.com" autocomplete="email" required>
+					<label for="guest-phone">Teléfono de contacto</label><input class="guest-input" id="guest-phone" name="phone" type="tel" placeholder="+56 9 1234 5678" autocomplete="tel" required>
+					<label for="guest-birthdate">Fecha de nacimiento</label><input class="guest-input" id="guest-birthdate" name="birthDate" type="date" autocomplete="bday" required>
+				</div>
+
+				<label class="upload-button" for="identity-document">
+					<span>Subir cédula o pasaporte (JPG, PNG o PDF)</span>
+					<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h3l1.5-2h7L17 7h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+				</label>
+				<input class="visually-hidden file-input" id="identity-document" name="identityDocument" type="file" accept="image/jpeg,image/png,application/pdf" capture="environment" multiple required aria-describedby="document-name">
+				<span class="document-name" id="document-name" aria-live="polite"></span>
+				<div class="document-preview-grid" id="document-preview" aria-label="Vista previa de documentos"></div>
+
+				<details class="terms-details">
+					<summary>Leer acuerdo de hospedaje y garantía</summary>
+					<p>El huésped se compromete a cuidar el inmueble y sus bienes durante la estadía, respetar las normas de convivencia y devolver el espacio en condiciones razonables de uso. La garantía podrá ser retenida únicamente según las condiciones acordadas para responder por daños atribuibles al huésped. Las condiciones definitivas y el tratamiento de datos deben ser aprobados y publicados por Grupo Norus antes de habilitar este flujo en producción.</p>
+				</details>
+				<p class="demo-notice compact-notice"><span aria-hidden="true">✳</span> Prototipo: documentos y firmas no se transmiten ni se guardan. Para producción se necesita almacenamiento cifrado.</p>
+				<div class="signature-box">
+					<canvas id="signature-pad" aria-label="Área para firmar" data-i18n-aria="signatureLabel"></canvas>
+					<span class="signature-placeholder" data-i18n="signaturePlaceholder">Firme digitalmente aquí</span>
+				</div>
+				<div class="signature-actions"><span id="signature-timestamp" aria-live="polite">La firma se registrará al confirmar.</span><button type="button" id="clear-signature">Borrar firma</button></div>
+
+				<label class="consent-row" for="terms-accepted">
+					<input id="terms-accepted" name="termsAccepted" type="checkbox" required>
+					<span data-i18n="terms">Acepto los términos del contrato de hospedaje y la política de resguardo de garantía</span>
+				</label>
+
+				<button class="confirm-button" type="submit" data-i18n="confirm">Confirmar y ver instrucciones de acceso</button>
+				<p class="form-status" role="status" aria-live="polite"></p>
+				<a class="precheckin-next" href="dashboard.html" hidden>Ver mi estadía <span aria-hidden="true">→</span></a>
+			</form>
+			<p class="support-note" data-i18n="support">Atención y soporte 24/7</p>
+		</section>
+	</main>
+	<script src="assets/js/app.js" defer></script>
+	<script src="assets/js/signature.js" defer></script>
+	<script src="assets/js/backend.js" defer></script>
+</body>
+</html>

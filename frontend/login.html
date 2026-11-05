@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#091522">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<link rel="manifest" href="manifest.webmanifest">
+	<title>Grupo Norus | Iniciar sesión</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="assets/css/styles.css">
+	<link rel="stylesheet" href="assets/css/luxury.css">
+</head>
+<body>
+	<main class="page-shell auth-shell">
+		<header class="site-header">
+			<a class="brand brand-link" href="index.html" aria-label="Grupo Norus, inicio"><span class="brand-mark" aria-hidden="true">N</span><span class="brand-copy"><strong>GRUPO NORUS</strong><small>Apartments &amp; Hospitality</small></span></a>
+			<nav class="site-nav" aria-label="Navegación principal"><a href="index.html">Inicio</a><a href="admin.html">Equipo</a></nav>
+			<nav class="language-switch" aria-label="Seleccionar idioma"><button class="language-button is-active" type="button" data-language="es" aria-pressed="true">ES</button><span aria-hidden="true">/</span><button class="language-button" type="button" data-language="en" aria-pressed="false">EN</button><span aria-hidden="true">/</span><button class="language-button" type="button" data-language="pt" aria-pressed="false">PT</button></nav>
+		</header>
+		<section class="auth-layout" aria-labelledby="login-title">
+			<div class="auth-story"><p class="eyebrow">BIENVENIDO DE VUELTA</p><h1>Tu próxima estadía<br>comienza aquí.</h1><p>Ingresa a tu cuenta para gestionar tus reservas y disfrutar de todos los detalles de tu experiencia Norus.</p></div>
+			<div class="auth-card">
+				<a class="back-link" href="index.html"><span aria-hidden="true">←</span> Volver al inicio</a>
+				<p class="eyebrow">TU ESPACIO PERSONAL</p>
+				<h2 id="login-title">Iniciar sesión</h2>
+				<p class="auth-description">Accede a tu cuenta de Grupo Norus.</p>
+				<form class="auth-form" data-auth-form="login" method="post" action="/api/auth/login">
+					<noscript><p class="form-status">Activa JavaScript para continuar con la autenticación segura.</p></noscript>
+					<label for="login-email">Correo electrónico</label>
+					<input id="login-email" name="email" type="email" placeholder="nombre@correo.com" autocomplete="email" required>
+					<label for="login-password">Contraseña</label>
+					<input id="login-password" name="password" type="password" placeholder="Ingresa tu contraseña" autocomplete="current-password" required>
+					<a class="forgot-link" href="recuperar-contrasena.html">¿Olvidaste tu contraseña?</a>
+					<button class="primary-button" type="submit" disabled>Iniciar sesión <span aria-hidden="true">→</span></button>
+					<p class="form-status" role="status" aria-live="polite"></p>
+				</form>
+				<p class="auth-footnote">Accede con tu cuenta real de Grupo Norus. La cuenta administrativa se gestiona desde la configuración del servidor.</p>
+				<p class="auth-footnote">¿No tienes cuenta? <a href="register.html">Registrarse</a><br>¿Solo necesitas los datos de tu reserva? <a href="index.html">Accede con tu código</a><br>¿Eres parte del equipo? <a href="admin.html">Consola de operaciones</a></p>
+			</div>
+		</section>
+		<footer class="site-footer auth-footer"><span>© Grupo Norus</span><span>Atención y soporte 24/7</span></footer>
+	</main>
+	<script src="assets/js/app.js" defer></script>
+	<script src="assets/js/backend.js" defer></script>
+</body>
+</html>

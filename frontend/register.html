@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#091522">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<link rel="manifest" href="manifest.webmanifest">
+	<title>Grupo Norus | Registrarse</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="assets/css/styles.css">
+	<link rel="stylesheet" href="assets/css/luxury.css">
+</head>
+<body>
+	<main class="page-shell auth-shell">
+		<header class="site-header">
+			<a class="brand brand-link" href="index.html" aria-label="Grupo Norus, inicio"><span class="brand-mark" aria-hidden="true">N</span><span class="brand-copy"><strong>GRUPO NORUS</strong><small>Apartments &amp; Hospitality</small></span></a>
+			<nav class="site-nav" aria-label="Navegación principal"><a href="index.html">Inicio</a><a href="admin.html">Equipo</a></nav>
+			<nav class="language-switch" aria-label="Seleccionar idioma"><button class="language-button is-active" type="button" data-language="es" aria-pressed="true">ES</button><span aria-hidden="true">/</span><button class="language-button" type="button" data-language="en" aria-pressed="false">EN</button><span aria-hidden="true">/</span><button class="language-button" type="button" data-language="pt" aria-pressed="false">PT</button></nav>
+		</header>
+		<section class="auth-layout" aria-labelledby="register-title">
+			<div class="auth-story"><p class="eyebrow">CREA TU CUENTA</p><h1>Tu experiencia Norus<br>comienza hoy.</h1><p>Registra tu cuenta para gestionar tu reserva, revisar accesos y seguir todas tus solicitudes desde cualquier dispositivo.</p></div>
+			<div class="auth-card">
+				<a class="back-link" href="login.html"><span aria-hidden="true">←</span> Volver</a>
+				<p class="eyebrow">REGÍSTRATE</p>
+				<h2 id="register-title">Crear cuenta</h2>
+				<p class="auth-description">Completa tus datos para crear tu cuenta real de Norus.</p>
+				<form class="auth-form" data-auth-form="register" method="post" action="/api/auth/register">
+					<label for="register-name">Nombre completo</label>
+					<input id="register-name" name="name" type="text" maxlength="160" placeholder="Tu nombre completo" autocomplete="name" required>
+					<label for="register-email">Correo electrónico</label>
+					<input id="register-email" name="email" type="email" placeholder="nombre@correo.com" autocomplete="email" required>
+					<label for="register-password">Contraseña</label>
+					<input id="register-password" name="password" type="password" placeholder="Mínimo 8 caracteres" autocomplete="new-password" minlength="8" required>
+					<button class="primary-button" type="submit" disabled>Registrarse <span aria-hidden="true">→</span></button>
+					<p class="form-status" role="status" aria-live="polite"></p>
+				</form>
+				<p class="auth-footnote">¿Ya tienes cuenta? <a href="login.html">Iniciar sesión</a><br>¿Necesitas revisar una reserva? <a href="index.html">Volver al sitio público</a></p>
+			</div>
+		</section>
+		<footer class="site-footer auth-footer"><span>© Grupo Norus</span><span>Atención y soporte 24/7</span></footer>
+	</main>
+	<script src="assets/js/app.js" defer></script>
+	<script src="assets/js/backend.js" defer></script>
+</body>
+</html>

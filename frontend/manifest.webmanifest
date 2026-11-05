@@ -1,0 +1,19 @@
+{
+	"name": "Grupo Norus · Guest Experience",
+	"short_name": "Norus",
+	"description": "Tu estadía, asistencia e información de acceso en Grupo Norus.",
+	"lang": "es",
+	"start_url": "./index.html",
+	"scope": "./",
+	"display": "standalone",
+	"background_color": "#091522",
+	"theme_color": "#091522",
+	"icons": [
+		{
+			"src": "assets/img/norus-mark.svg",
+			"sizes": "any",
+			"type": "image/svg+xml",
+			"purpose": "any maskable"
+		}
+	]
+}

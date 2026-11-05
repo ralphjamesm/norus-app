@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#091522">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="description" content="Disfruta tu estadía en Grupo Norus: pre check-in, instrucciones y asistencia.">
+	<title>Grupo Norus | Una estadía extraordinaria</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="assets/css/styles.css">
+	<link rel="stylesheet" href="assets/css/luxury.css">
+	<link rel="manifest" href="manifest.webmanifest">
+</head>
+<body>
+	<main class="page-shell landing-shell">
+		<header class="site-header">
+			<a class="brand brand-link" href="index.html" aria-label="Grupo Norus, inicio">
+				<span class="brand-mark" aria-hidden="true">N</span>
+				<span class="brand-copy"><strong>GRUPO NORUS</strong><small>Apartments &amp; Hospitality</small></span>
+			</a>
+			<nav class="site-nav" aria-label="Navegación principal">
+				<a href="#estadia">Tu estadía</a>
+				<a class="nav-login" href="login.html">Iniciar sesión</a>
+			</nav>
+			<nav class="language-switch" aria-label="Seleccionar idioma">
+				<button class="language-button is-active" type="button" lang="es" data-language="es" aria-pressed="true">ES</button><span aria-hidden="true">/</span>
+				<button class="language-button" type="button" lang="en" data-language="en" aria-pressed="false">EN</button><span aria-hidden="true">/</span>
+				<button class="language-button" type="button" lang="pt" data-language="pt" aria-pressed="false">PT</button>
+			</nav>
+		</header>
+
+		<section class="landing-hero" aria-labelledby="welcome-title">
+			<div class="hero-copy">
+				<p class="eyebrow">HOSPITALIDAD, A TU MANERA</p>
+				<h1 id="welcome-title" data-i18n="welcome">Bienvenido a tu estadía</h1>
+				<p class="intro" data-i18n="intro">Ingresa el código de tu reserva para acceder a tus instrucciones de llegada y pre check-in digital</p>
+				<form class="reservation-form" action="precheckin.html" method="get">
+					<label class="visually-hidden" for="reservation-code" data-i18n="codeLabel">Código de Reserva</label>
+					<input id="reservation-code" name="code" type="text" placeholder="Código de Reserva (Ej: NOR-8421)" autocomplete="off" required aria-label="Código de Reserva">
+					<button class="primary-button" type="submit" data-i18n="start">Iniciar Pre Check-in</button>
+				</form>
+				<div class="venue-wrap">
+					<button class="venue-button" type="button" aria-expanded="false" aria-controls="venue-menu">
+						<span data-i18n="venue">Sede: Norus Las Condes</span><span class="menu-icon" aria-hidden="true"><i></i><i></i><i></i></span>
+					</button>
+					<div class="venue-menu" id="venue-menu" hidden><span class="venue-menu-label" data-i18n="currentVenue">Sede seleccionada</span><strong>Norus Las Condes</strong></div>
+				</div>
+			</div>
+			<div class="hero-caption"><span>01 — SANTIAGO, CHILE</span><span>UNA FORMA DISTINTA DE ESTAR</span></div>
+		</section>
+
+		<section class="experience-section" id="estadia" aria-labelledby="experience-title">
+			<div class="section-heading">
+				<p class="eyebrow">GRUPO NORUS</p>
+				<h2 id="experience-title">Cada detalle, pensado para ti.</h2>
+				<p>Espacios únicos y una experiencia simple, desde tu llegada hasta el último día.</p>
+			</div>
+			<div class="experience-grid">
+				<article class="experience-card experience-card-one"><span>01</span><h3>Tu espacio</h3><p>Comodidad y privacidad para sentirte en casa.</p></article>
+				<article class="experience-card experience-card-two"><span>02</span><h3>Todo a mano</h3><p>Acceso a la información de tu estadía, cuando la necesites.</p></article>
+				<article class="experience-card experience-card-three"><span>03</span><h3>Estamos contigo</h3><p>Atención y soporte para acompañarte en cada momento.</p></article>
+			</div>
+		</section>
+		<footer class="site-footer">
+			<a class="brand brand-link" href="index.html"><span class="brand-mark" aria-hidden="true">N</span><span class="brand-copy"><strong>GRUPO NORUS</strong><small>Apartments &amp; Hospitality</small></span></a>
+			<p class="support-note" data-i18n="support">Atención y soporte 24/7</p>
+			<div class="footer-links"><a href="admin.html">Consola de personal</a></div>
+		</footer>
+	</main>
+	<script src="assets/js/app.js" defer></script>
+	<script src="assets/js/backend.js" defer></script>
+</body>
+</html>

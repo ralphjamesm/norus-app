@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#091522">
+	<meta name="description" content="Instrucciones, solicitudes y detalles de tu estadía en Grupo Norus.">
+	<title>Grupo Norus | Tu estadía</title>
+	<link rel="manifest" href="manifest.webmanifest">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="assets/css/styles.css">
+	<link rel="stylesheet" href="assets/css/luxury.css">
+</head>
+<body>
+	<main class="page-shell dashboard-shell">
+		<header class="topbar">
+			<a class="brand brand-link" href="index.html" aria-label="Grupo Norus, inicio"><span class="brand-mark" aria-hidden="true">N</span><span class="brand-copy"><strong>GRUPO NORUS</strong><small>Apartments &amp; Hospitality</small></span></a>
+			<nav class="site-nav" aria-label="Navegación principal"><a href="#services-title">Asistencia</a><a class="nav-login" href="login.html">Mi cuenta</a></nav>
+			<nav class="language-switch" aria-label="Seleccionar idioma">
+				<button class="language-button is-active" type="button" lang="es" data-language="es" aria-pressed="true">ES</button><span aria-hidden="true">/</span>
+				<button class="language-button" type="button" lang="en" data-language="en" aria-pressed="false">EN</button><span aria-hidden="true">/</span>
+				<button class="language-button" type="button" lang="pt" data-language="pt" aria-pressed="false">PT</button>
+			</nav>
+		</header>
+
+		<section class="guest-page">
+			<div class="guest-welcome">
+				<div><p class="eyebrow">TU ESTADÍA · RESERVA NOR-8421</p><h1>Hola, <span id="guest-first-name">Ralph</span>.</h1><p class="guest-subtitle" id="stay-property">Norus Las Condes · Departamento 402</p></div>
+				<label class="venue-select-label" for="property-select">Tu sede<select id="property-select" name="property"><option value="las-condes">Norus Las Condes</option><option value="providencia">Norus Providencia</option><option value="luum">LUUM</option></select></label>
+			</div>
+			<div class="stay-summary">
+				<div><span>CHECK-IN</span><strong id="checkin-date">Hoy · 15:00</strong></div>
+				<div><span>CHECK-OUT</span><strong id="checkout-date">Mañana · 11:00</strong></div>
+				<div><span>ESTADO</span><strong class="stay-status"><i class="status-dot"></i> <span id="stay-status-text">Estadía activa</span></strong></div>
+			</div>
+			<section class="access-card" aria-labelledby="access-title">
+				<div class="section-heading-inline"><div><p class="eyebrow">TU LLEGADA</p><h2 id="access-title">Instrucciones de acceso</h2></div><span class="access-state" id="access-state">Disponible durante tu estadía</span></div>
+				<div class="access-grid" id="access-details">
+					<div class="access-detail"><span class="detail-icon" aria-hidden="true">⌑</span><div><span>CERRADURA DIGITAL</span><strong id="lock-code">••••••</strong></div></div>
+					<div class="access-detail"><span class="detail-icon" aria-hidden="true">⌁</span><div><span>RED WI-FI</span><strong id="wifi-name">••••••</strong><small id="wifi-password">Disponible durante la estadía</small></div></div>
+					<div class="access-detail"><span class="detail-icon" aria-hidden="true">⌂</span><div><span>HORARIO DE SALIDA</span><strong>11:00 AM</strong><small>Gracias por tu estadía.</small></div></div>
+				</div>
+			</section>
+			<section class="guest-services" aria-labelledby="services-title">
+				<div class="section-heading-inline"><div><p class="eyebrow">A TU DISPOSICIÓN</p><h2 id="services-title">Servicios de tu estadía</h2></div></div>
+				<div class="service-grid">
+					<a class="service-card" href="#manuales"><span class="service-icon" aria-hidden="true">↗</span><span><strong>Manual de tu espacio</strong><small>Guías de electrodomésticos y recomendaciones.</small></span><span class="service-arrow" aria-hidden="true">→</span></a>
+					<button class="service-card" type="button" data-open-dialog="supplies-dialog"><span class="service-icon" aria-hidden="true">＋</span><span><strong>Solicitar insumos</strong><small>Toallas, sábanas y artículos adicionales.</small></span><span class="service-arrow" aria-hidden="true">→</span></button>
+					<button class="service-card" type="button" data-open-dialog="issue-dialog"><span class="service-icon" aria-hidden="true">⌁</span><span><strong>Reportar una incidencia</strong><small>Cuéntanos qué necesita atención.</small></span><span class="service-arrow" aria-hidden="true">→</span></button>
+					<button class="service-card" type="button" data-open-dialog="issue-dialog"><span class="service-icon" aria-hidden="true">✳</span><span><strong>Centro de asistencia</strong><small>Solicita ayuda desde tu estadía.</small></span><span class="service-arrow" aria-hidden="true">→</span></button>
+				</div>
+			</section>
+			<section class="manual-section" id="manuales"><div><p class="eyebrow">GUÍA DEL ALOJAMIENTO</p><h2>Manuales y recomendaciones</h2></div><div class="manual-list" id="manual-list"></div></section>
+			<section class="checkout-banner"><div><p class="eyebrow">HASTA PRONTO</p><h2>¿Todo listo para tu salida?</h2><p>Confirma tu check-out y cuéntanos cómo estuvo tu estadía.</p></div><a class="primary-button" href="checkout.html">Completar check-out <span aria-hidden="true">→</span></a></section>
+			<section class="ticket-section"><div class="section-heading-inline"><div><p class="eyebrow">TUS SOLICITUDES</p><h2>Actividad reciente</h2></div></div><div id="guest-ticket-list" class="guest-ticket-list"><p class="empty-state">Aún no tienes solicitudes.</p></div></section>
+		</section>
+		<footer class="site-footer"><a class="brand brand-link" href="index.html"><span class="brand-mark" aria-hidden="true">N</span><span class="brand-copy"><strong>GRUPO NORUS</strong><small>Apartments &amp; Hospitality</small></span></a><p class="support-note">Atención y soporte 24/7</p><a href="#services-title">Servicios de tu estadía</a></footer>
+	</main>
+
+	<dialog class="dashboard-dialog service-dialog" id="supplies-dialog" aria-labelledby="supplies-title">
+		<button class="dialog-x" type="button" data-close-dialog aria-label="Cerrar">×</button>
+		<p class="eyebrow">HOUSEKEEPING</p><h2 id="supplies-title">Solicitar insumos</h2>
+		<p class="dialog-copy">Selecciona lo que necesitas. Esta solicitud se guardará en este navegador como demostración.</p>
+		<form class="auth-form" data-ticket-form="supplies">
+			<label for="supply-items">Insumos</label>
+			<select id="supply-items" name="items" multiple required size="4"><option>Toallas adicionales</option><option>Sábanas limpias</option><option>Amenities de baño</option><option>Agua embotellada</option></select>
+			<label for="supply-notes">Indicaciones (opcional)</label><textarea id="supply-notes" name="notes" rows="2" placeholder="¿Alguna indicación para la entrega?"></textarea>
+			<button class="primary-button" type="submit">Crear solicitud <span aria-hidden="true">→</span></button><p class="form-status" role="status" aria-live="polite"></p>
+		</form>
+	</dialog>
+	<dialog class="dashboard-dialog service-dialog" id="issue-dialog" aria-labelledby="issue-title">
+		<button class="dialog-x" type="button" data-close-dialog aria-label="Cerrar">×</button>
+		<p class="eyebrow">MANTENIMIENTO</p><h2 id="issue-title">Reportar incidencia</h2>
+		<p class="dialog-copy">Describe el problema y adjunta hasta 3 fotos como evidencia.</p>
+		<form class="auth-form" data-ticket-form="issue">
+			<label for="issue-description">Descripción de la falla</label><textarea id="issue-description" name="description" rows="3" minlength="10" required placeholder="Cuéntanos qué ocurrió y dónde..."></textarea>
+			<label for="issue-photos">Fotografías (máximo 3)</label><input id="issue-photos" name="photos" type="file" accept="image/*" capture="environment" multiple aria-describedby="issue-preview">
+			<div id="issue-preview" class="image-preview-grid" aria-live="polite"></div>
+			<button class="primary-button" type="submit">Enviar reporte <span aria-hidden="true">→</span></button><p class="form-status" role="status" aria-live="polite"></p>
+		</form>
+	</dialog>
+	<script src="assets/js/app.js" defer></script>
+	<script src="assets/js/backend.js" defer></script>
+</body>
+</html>

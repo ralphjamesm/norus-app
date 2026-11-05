@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#091522">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="description" content="Confirma tu salida y comparte tu experiencia con Grupo Norus.">
+	<title>Grupo Norus | Check-out y opinión</title>
+	<link rel="manifest" href="manifest.webmanifest">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="assets/css/styles.css">
+	<link rel="stylesheet" href="assets/css/luxury.css">
+</head>
+<body>
+	<main class="page-shell auth-shell">
+		<header class="site-header">
+			<a class="brand brand-link" href="index.html" aria-label="Grupo Norus, inicio"><span class="brand-mark" aria-hidden="true">N</span><span class="brand-copy"><strong>GRUPO NORUS</strong><small>Apartments &amp; Hospitality</small></span></a>
+			<nav class="site-nav" aria-label="Navegación principal"><a href="dashboard.html">Mi estadía</a></nav>
+			<nav class="language-switch" aria-label="Seleccionar idioma"><button class="language-button is-active" type="button" data-language="es" aria-pressed="true">ES</button><span aria-hidden="true">/</span><button class="language-button" type="button" data-language="en" aria-pressed="false">EN</button><span aria-hidden="true">/</span><button class="language-button" type="button" data-language="pt" aria-pressed="false">PT</button></nav>
+		</header>
+		<section class="checkout-layout">
+			<div class="checkout-intro"><p class="eyebrow">GRACIAS POR ELEGIRNOS</p><h1>Hasta la próxima.</h1><p>Esperamos que hayas disfrutado cada detalle. Confirma tu salida y déjanos saber cómo fue tu estadía.</p><div class="checkout-time"><span class="detail-icon" aria-hidden="true">⌚</span><span><small>HORA DE SALIDA</small><strong>11:00 AM</strong></span></div></div>
+			<div class="auth-card checkout-card">
+				<p class="eyebrow">TU OPINIÓN NOS INSPIRA</p>
+				<h2 id="checkout-title">Confirma tu salida</h2>
+				<p class="auth-description">Tu check-out es a las 11:00 AM. Después de confirmar, puedes compartir tu experiencia.</p>
+				<button class="primary-button checkout-confirm-button" type="button" data-checkout-confirm>Confirmar check-out <span aria-hidden="true">→</span></button>
+				<p class="form-status checkout-confirmation" id="checkout-confirmation" role="status" aria-live="polite"></p>
+				<form class="auth-form survey-form" data-checkout-form>
+					<div id="survey-section" hidden>
+					<h3>¿Cómo estuvo tu estadía?</h3>
+					<p class="auth-description">Tu opinión nos ayuda a crear mejores experiencias.</p>
+					<fieldset class="rating-fieldset"><legend>Califica tu experiencia</legend><div class="rating-options" role="radiogroup" aria-label="Califica tu estadía">
+						<label><input type="radio" name="rating" value="1" required><span aria-hidden="true">★</span><small>1</small></label>
+						<label><input type="radio" name="rating" value="2"><span aria-hidden="true">★</span><small>2</small></label>
+						<label><input type="radio" name="rating" value="3"><span aria-hidden="true">★</span><small>3</small></label>
+						<label><input type="radio" name="rating" value="4"><span aria-hidden="true">★</span><small>4</small></label>
+						<label><input type="radio" name="rating" value="5"><span aria-hidden="true">★</span><small>5</small></label>
+					</div></fieldset>
+					<label for="checkout-comments">Comentarios (opcional)</label><textarea id="checkout-comments" name="comments" rows="4" maxlength="1000" placeholder="¿Qué fue lo que más disfrutaste?"></textarea>
+					<button class="primary-button" type="submit">Enviar opinión <span aria-hidden="true">→</span></button><p class="form-status" role="status" aria-live="polite"></p>
+					</div>
+				</form>
+				<a class="checkout-back" href="dashboard.html">Volver a mi estadía</a>
+			</div>
+		</section>
+		<footer class="site-footer auth-footer"><span>© Grupo Norus · Vista de demostración</span><span>Atención y soporte 24/7</span></footer>
+	</main>
+	<script src="assets/js/app.js" defer></script>
+	<script src="assets/js/backend.js" defer></script>
+</body>
+</html>

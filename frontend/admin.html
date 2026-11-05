@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#091522">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="description" content="Consola de operaciones de Grupo Norus para reservas, servicios y gestión del personal.">
+	<title>Grupo Norus | Consola de operaciones</title>
+	<link rel="manifest" href="manifest.webmanifest">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="assets/css/styles.css">
+	<link rel="stylesheet" href="assets/css/luxury.css">
+</head>
+<body>
+	<main class="page-shell admin-shell">
+		<header class="site-header">
+			<a class="brand brand-link" href="index.html" aria-label="Grupo Norus, inicio"><span class="brand-mark" aria-hidden="true">N</span><span class="brand-copy"><strong>GRUPO NORUS</strong><small>CONSOLA DE OPERACIONES</small></span></a>
+			<nav class="site-nav" aria-label="Navegación principal"><a href="dashboard.html">Vista huésped</a><a href="index.html">Sitio público</a><a class="nav-login" href="login.html">Cerrar sesión</a></nav>
+			<nav class="language-switch" aria-label="Seleccionar idioma"><button class="language-button is-active" type="button" data-language="es" aria-pressed="true">ES</button><span aria-hidden="true">/</span><button class="language-button" type="button" data-language="en" aria-pressed="false">EN</button><span aria-hidden="true">/</span><button class="language-button" type="button" data-language="pt" aria-pressed="false">PT</button></nav>
+		</header>
+		<section class="admin-content">
+			<div class="demo-notice"><span aria-hidden="true">✳</span> Acceso restringido · solo personal autorizado y la cuenta administrativa pueden operar esta consola.</div>
+			<div class="admin-heading"><div><p class="eyebrow">GRUPO NORUS · OPERACIONES</p><h1>Panel de control</h1><p>Reservas, housekeeping y mantenimiento de las sedes.</p></div><div class="admin-heading-actions"><button class="export-button" type="button" id="export-tickets">Exportar tickets CSV <span aria-hidden="true">↓</span></button></div></div>
+			<section class="admin-access-note" aria-label="Acceso del personal">
+				<p class="eyebrow">ACCESO REAL</p>
+				<p>La consola opera con sesión autenticada y permisos de personal o administración. Completa la configuración de MFA para habilitar todas las funciones.</p>
+			</section>
+			<div class="admin-filters">
+				<label for="admin-property">Sede<select id="admin-property"><option value="all">Todas las sedes</option><option value="Las Condes">Norus Las Condes</option><option value="Providencia">Norus Providencia</option><option value="LUUM">LUUM</option></select></label>
+				<label for="ticket-type-filter">Tipo de ticket<select id="ticket-type-filter"><option value="all">Todos los tipos</option><option value="supplies">Housekeeping</option><option value="issue">Mantenimiento</option></select></label>
+				<label for="ticket-status-filter">Estado<select id="ticket-status-filter"><option value="all">Todos los estados</option><option value="Pendiente">Pendiente</option><option value="En proceso">En proceso</option><option value="Resuelto">Resuelto</option></select></label>
+			</div>
+			<section class="admin-metrics" aria-label="Indicadores">
+				<article><span>RESERVAS ACTIVAS</span><strong id="metric-reservations">1</strong><small>Reservas en curso</small></article>
+				<article><span>TICKETS ABIERTOS</span><strong id="metric-open">0</strong><small>Housekeeping y mantenimiento</small></article>
+				<article><span>CSAT</span><strong id="metric-csat">—</strong><small>Promedio de encuestas registradas</small></article>
+				<article><span>SEDES</span><strong>03</strong><small>Las Condes · Providencia · LUUM</small></article>
+			</section>
+			<section class="admin-section"><div class="section-heading-inline"><div><p class="eyebrow">GESTIÓN OPERATIVA</p><h2>Solicitudes y tareas</h2></div><span id="ticket-count" class="ticket-count">0 solicitudes</span></div><div class="admin-ticket-list" id="admin-ticket-list"></div></section>
+			<section class="admin-section reservation-preview"><div class="section-heading-inline"><div><p class="eyebrow">ALOJAMIENTOS</p><h2>Reservas</h2></div></div><form class="auth-form admin-create-form" id="reservation-create-form"><label for="new-guest-name">Huésped</label><input id="new-guest-name" name="guestName" required maxlength="160"><label for="new-guest-email">Correo del huésped</label><input id="new-guest-email" name="guestEmail" type="email" required><label for="new-property">Sede</label><select id="new-property" name="property"><option>Las Condes</option><option>Providencia</option><option>LUUM</option></select><label for="new-unit">Unidad</label><input id="new-unit" name="unit" required maxlength="32"><label for="new-checkin">Ingreso (fecha y hora)</label><input id="new-checkin" name="checkinAt" type="datetime-local" required><label for="new-checkout">Salida (fecha y hora)</label><input id="new-checkout" name="checkoutAt" type="datetime-local" required><label for="new-access-code">Código de acceso (proveedor de cerradura)</label><input id="new-access-code" name="accessCode" autocomplete="off"><label for="new-wifi-name">Red Wi-Fi</label><input id="new-wifi-name" name="wifiName"><label for="new-wifi-password">Clave Wi-Fi</label><input id="new-wifi-password" name="wifiPassword" autocomplete="new-password"><button class="primary-button" type="submit">Crear reserva</button><p class="form-status" role="status" aria-live="polite"></p></form><div class="reservation-table-wrap"><table><thead><tr><th>RESERVA</th><th>HUÉSPED</th><th>SEDE</th><th>ESTADO</th><th>CHECK-OUT</th></tr></thead><tbody id="reservation-table">
+			</tbody></table></div></section>
+			<section class="admin-section"><div class="section-heading-inline"><div><p class="eyebrow">CONTENIDO POR SEDE</p><h2>Manuales digitales</h2></div></div><form class="auth-form admin-create-form" id="manual-create-form"><label for="manual-property">Sede</label><select id="manual-property" name="property"><option>Las Condes</option><option>Providencia</option><option>LUUM</option></select><label for="manual-language">Idioma</label><select id="manual-language" name="language"><option value="es">Español</option><option value="en">English</option><option value="pt">Português</option></select><label for="manual-title">Título</label><input id="manual-title" name="title" required maxlength="160"><label for="manual-content">Instrucciones</label><textarea id="manual-content" name="content" required maxlength="10000"></textarea><button class="primary-button" type="submit">Agregar manual</button><p class="form-status" role="status" aria-live="polite"></p></form><div id="admin-manual-list" class="admin-ticket-list"></div></section>
+			<section class="admin-section" hidden><div class="section-heading-inline"><div><p class="eyebrow">ACCESO DEL PERSONAL</p><h2>Crear cuenta de equipo</h2></div></div><form class="auth-form admin-create-form" id="staff-create-form"><label for="staff-name">Nombre</label><input id="staff-name" name="name" required maxlength="160"><label for="staff-email">Correo</label><input id="staff-email" name="email" type="email" required><label for="staff-role">Rol</label><select id="staff-role" name="role"><option value="staff">Personal</option><option value="admin">Administración</option></select><button class="primary-button" type="submit">Crear cuenta</button><p class="form-status" role="status" aria-live="polite"></p></form></section>
+			<div class="admin-footnote">El acceso a esta consola depende de la autenticación y permisos validados por el servidor.</div>
+		</section>
+		<footer class="site-footer"><a class="brand brand-link" href="index.html"><span class="brand-mark" aria-hidden="true">N</span><span class="brand-copy"><strong>GRUPO NORUS</strong><small>Apartments &amp; Hospitality</small></span></a><p class="support-note">Gestión de reservas y solicitudes</p></footer>
+	</main>
+	<script src="assets/js/app.js" defer></script>
+	<script src="assets/js/backend.js" defer></script>
+</body>
+</html>

@@ -54,6 +54,38 @@ class User(db.Model):
     created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=lambda: datetime.now(UTC))
 
 
+class Client(db.Model):
+    __tablename__ = "clients"
+
+    id = db.Column(db.Integer, primary_key=True)
+    first_name = db.Column(db.String(100), nullable=False)
+    last_name = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(150), unique=True, nullable=False, index=True)
+    phone = db.Column(db.String(30))
+    document_type = db.Column(db.String(20), nullable=False, default="RUT")
+    document_number = db.Column(db.String(50), unique=True, nullable=True, index=True)
+    created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=lambda: datetime.now(UTC))
+
+
+class ReservationStatus(db.Model):
+    __tablename__ = "reservation_status"
+
+    id = db.Column(db.Integer, primary_key=True)
+    code = db.Column(db.String(50), unique=True, nullable=False, index=True)
+    description = db.Column(db.String(150), nullable=False)
+
+
+class RoomHistory(db.Model):
+    __tablename__ = "room_history"
+
+    id = db.Column(db.Integer, primary_key=True)
+    room_number = db.Column(db.String(50), nullable=False, index=True)
+    action = db.Column(db.String(50), nullable=False)
+    details = db.Column(db.Text)
+    changed_by = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=True, index=True)
+    created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=lambda: datetime.now(UTC))
+
+
 class Reservation(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     code = db.Column(db.String(32), unique=True, nullable=False, index=True)

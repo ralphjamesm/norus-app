@@ -48,12 +48,14 @@ Ejecuta las pruebas:
 
 ## Despliegue en Render
 
+La app está pensada para producción con MySQL 8. Si quieres desplegarla en Render, debes usar una base MySQL real, no SQLite. SQLite solo sirve para pruebas locales o demos, pero no es una opción adecuada para reservas, sesiones, documentos cifrados y datos de operación.
+
 1. Crea un servicio web en Render y selecciona la opción de Python.
 2. Conecta este repositorio como servicio web.
 3. Añade estas variables de entorno en Render:
 
 ```env
-DATABASE_URL=mysql+pymysql://USER:PASSWORD@HOST:PORT/norus?charset=utf8mb4
+DATABASE_URL=mysql+pymysql://USER:PASSWORD@mysql+pymysql://usuario:password@host:3306/norus?charset=utf8mb4
 NORUS_SECRET_KEY=generar_un_secreto_largo_y_aleatorio
 NORUS_DOCUMENT_KEY=generar_una_clave_base64_urlsafe_de_32_bytes
 NORUS_COOKIE_SECURE=true
@@ -79,7 +81,7 @@ python backend/run.py
 
 5. Si prefieres configurar Render con un archivo `render.yaml`, este repositorio incluye la plantilla correspondiente.
 
-Render expone el puerto asignado por la plataforma en la variable `PORT`; el proyecto ya está preparado para escuchar en `0.0.0.0` y usar ese puerto. Para MySQL, crea primero una base de datos en Render y usa la cadena de conexión que te genere la plataforma.
+Render expone el puerto asignado por la plataforma en la variable `PORT`; el proyecto ya está preparado para escuchar en `0.0.0.0` y usar ese puerto. La base de datos debe ser MySQL 8 real, preferiblemente administrada por un servicio externo o por la base de datos que te proporcione tu hosting.
 
 ## Funciones de la API
 

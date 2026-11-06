@@ -15,9 +15,7 @@ services:
       - key: NORUS_COOKIE_SECURE
         value: "true"
       - key: DATABASE_URL
-        fromDatabase:
-          name: norus-db
-          property: connectionString
+        value: mysql+pymysql://USER:PASSWORD@HOST:3306/norus?charset=utf8mb4
       - key: NORUS_SECRET_KEY
         generateValue: true
       - key: NORUS_DOCUMENT_KEY
@@ -42,9 +40,3 @@ services:
         value: ""
       - key: PROPERTY_EMAIL_LUUM
         value: ""
-
-databases:
-  - name: norus-db
-    databaseName: norus
-    user: norus
-    plan: free

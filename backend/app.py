@@ -90,6 +90,8 @@ class Reservation(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     code = db.Column(db.String(32), unique=True, nullable=False, index=True)
     guest_id = db.Column(db.Integer, db.ForeignKey("user.id"), index=True)
+    client_id = db.Column(db.Integer, db.ForeignKey("clients.id"), nullable=True, index=True)
+    client = db.relationship("Client", backref=db.backref("reservations", lazy=True))
     guest_name = db.Column(db.String(160), nullable=False)
     guest_email = db.Column(db.String(254), nullable=False)
     property = db.Column(db.String(32), nullable=False, index=True)
@@ -422,6 +424,53 @@ def create_app(test_config: dict[str, Any] | None = None) -> Flask:
     @app.get("/api/csrf")
     def api_csrf():
         return jsonify({"csrfToken": _csrf_token()})
+
+    @app.get("/api/clients")
+    @roles_required("admin", "staff")
+    def api_clients_list():
+        clients = Client.query.order_by(Client.last_name, Client.first_name).all()
+        return jsonify([{
+            "id": client.id,
+            "firstName": client.first_name,
+            "lastName": client.last_name,
+            "email": client.email,
+            "phone": client.phone or "",
+            "documentType": client.document_type,
+            "documentNumber": client.document_number or "",
+            "createdAt": _utc(client.created_at).isoformat(),
+        } for client in clients])
+
+    @app.post("/api/clients")
+    @roles_required("admin", "staff")
+    def api_clients_create():
+        data = request.get_json(silent=True) or {}
+        first_name = str(data.get("first_name", "")).strip()
+        last_name = str(data.get("last_name", "")).strip()
+        email = str(data.get("email", "")).strip().lower()
+        phone = str(data.get("phone", "")).strip()
+        document_type = str(data.get("document_type", "RUT")).strip() or "RUT"
+        document_number = str(data.get("document_number", "")).strip()
+
+        if not first_name or not last_name or not email or "@" not in email:
+            return _json_error("Faltan campos obligatorios o el correo no es válido.", 400)
+        if len(email) > 150:
+            return _json_error("El correo supera el máximo permitido.", 400)
+        if Client.query.filter_by(email=email).first():
+            return _json_error("Ya existe un cliente con ese correo.", 409)
+        if document_number and Client.query.filter_by(document_number=document_number).first():
+            return _json_error("Ya existe un cliente con ese número de documento.", 409)
+
+        client = Client(
+            first_name=first_name,
+            last_name=last_name,
+            email=email,
+            phone=phone or None,
+            document_type=document_type,
+            document_number=document_number or None,
+        )
+        db.session.add(client)
+        db.session.commit()
+        return jsonify({"id": client.id, "message": "Cliente registrado"}), 201
 
     @app.post("/api/auth/register")
     def api_register():
